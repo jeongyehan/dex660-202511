@@ -5,12 +5,12 @@
 - STUDENT_FILE=
 
 ## Anypoint Platform Information
-- Mule Account:
+- Mule Account: yehan202511
 
 ### Business Group
-- Business Group ID: 
-- Client ID: 
-- Client Secret: 
+- Business Group ID: f4d638fd-fc9b-4794-b898-9a02a289e0be
+- Client ID: eda99d17552b4388b48b1591aad362ac
+- Client Secret: 7DF59c4b13534F82AB84508E1DC035Dd
 
 ### Connected App 
 - Exchange Contributor ID: 
@@ -19,7 +19,7 @@
 - CloudHub Deployment Secret: 
 
 ### API Instance ID:
-- prod: 
+- prod: 20609558
 - test:
 - dev:
 
