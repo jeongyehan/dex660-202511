@@ -1,8 +1,8 @@
 # Anypoint Platform Development: Production-Ready Development Practices - DEX660
 
 ## Local Path
-- PROJECT_HOME=
-- STUDENT_FILE=
+- PROJECT_HOME=/Users/yehan.jeong/Desktop/dex660-202511
+- STUDENT_FILE=/Users/yehan.jeong/Desktop/DEX660-WI25v1-EN-Student-Files
 
 ## Anypoint Platform Information
 - Mule Account: yehan202511
