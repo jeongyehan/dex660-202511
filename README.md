@@ -24,4 +24,8 @@
 - dev:
 
 ## Commands
+- export PROJECT_HOME=/Users/yehan.jeong/Desktop/dex660-202511
+- export STUDENT_FILE=/Users/yehan.jeong/Desktop/DEX660-WI25v1-EN-Student-Files
+- curl -ik -X PUT -H "Content-Type: application/json" -d "{\"lastName\":\"Smith\",\"numBags\":2}" https://localhost:8081/api/v1/tickets/PNR123/checkin
+- -M-Danypoint.platform.client_id=eda99d17552b4388b48b1591aad362ac -M-Danypoint.platform.client_secret=7DF59c4b13534F82AB84508E1DC035Dd
 -
