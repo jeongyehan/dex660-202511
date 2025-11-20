@@ -1,0 +1,9 @@
+api:
+  id: "20611518"
+
+tls.keystore:
+  type: "pkcs12"
+  path: "certs/check-in-papi-dev.p12"
+  alias: "server"
+  password: "mule12345"
+  keyPassword: "mule12345"

@@ -17,5 +17,7 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 	    <tls:key-store type="${tls.keystore.type}" path="${tls.keystore.path}" alias="${tls.keystore.alias}" keyPassword="${tls.keystore.keyPassword}" password="${tls.keystore.password}" />
 	</tls:context>
 	<api-gateway:autodiscovery apiId="${api.id}" ignoreBasePath="true" doc:name="API Autodiscovery" flowRef="api-main" />
-	<configuration-properties doc:name="Configuration properties" doc:id="f2c69b7d-662e-4214-b5b9-47e62e1f5d9c" file="properties.yaml" />
+	<configuration-properties doc:name="Configuration properties" doc:id="f2c69b7d-662e-4214-b5b9-47e62e1f5d9c" file="props/properties.yaml" />
+	<global-property doc:name="Global Property" doc:id="3e1e8b14-8184-4a5b-8be1-cb1482b9dbf5" name="env" value="dev" />
+	<configuration-properties doc:name="Configuration properties" doc:id="dd867cfb-42c9-4ec8-beb0-23484a060388" file="props/${env}-properties.yaml" />
 	</mule>
