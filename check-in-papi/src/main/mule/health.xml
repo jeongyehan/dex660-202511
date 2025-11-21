@@ -5,8 +5,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
-
-	<import doc:name="Import" doc:id="d03d79c6-4a01-4f45-8950-533fe325fbd7" file="health-common.xml" />
 	<!-- [STUDIO:"api-alive"]<flow name="api-alive" >
 	    <http:listener config-ref="apiHttpListenerConfig" path="/alive">
 	    <http:response statusCode="200" />

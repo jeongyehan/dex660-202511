@@ -9,7 +9,7 @@
 
 	<name>check-in-papi</name>
 
-<!-- 	<parent>
+	<!-- 	<parent>
 		<groupId>f4d638fd-fc9b-4794-b898-9a02a289e0be</groupId>
 		<artifactId>solutions-parent-pom</artifactId>
 		<version>1.0.1</version>
@@ -20,13 +20,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<app.runtime>4.10.0</app.runtime>
+		<app.runtime>4.9.11</app.runtime>
 		<mule.maven.plugin.version>4.5.3</mule.maven.plugin.version>
 		<api.groupId>f4d638fd-fc9b-4794-b898-9a02a289e0be</api.groupId>
 		<api.artifactId>check-in-papi</api.artifactId>
 		<api.version>1.0.0</api.version>
-		
 		<!-- <api.layer>${api.layer.papi}</api.layer> -->
+		<munit.version>3.6.1</munit.version>
 	</properties>
 
 	<build>
@@ -34,7 +34,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.2.0</version>						
+				<version>3.2.0</version>
 			</plugin>
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
@@ -42,6 +42,35 @@
 				<extensions>true</extensions>
 				<version>4.5.3</version>
 			</plugin>
+			<plugin>
+			  <groupId>com.mulesoft.munit.tools</groupId>
+			  <artifactId>munit-maven-plugin</artifactId>
+			  <version>${munit.version}</version>
+			  <executions>
+			    <execution>
+			      <id>test</id>
+			      <phase>test</phase>
+			      <goals>
+			        <goal>test</goal>
+			        <goal>coverage-report</goal>
+			      </goals>
+			    </execution>
+			  </executions>
+			  <configuration>
+			    <runtimeVersion>${app.runtime}</runtimeVersion>
+			    <runtimeProduct>MULE_EE</runtimeProduct>
+			    <environmentVariables>
+			      <encrypt.key>${encrypt.key}</encrypt.key>
+			    </environmentVariables>
+			    <coverage>
+			      <runCoverage>true</runCoverage>
+			      <formats>
+			        <format>console</format>
+			        <format>html</format>
+			      </formats>
+			    </coverage>
+			  </configuration>
+			</plugin> 
 		</plugins>
 	</build>
 
@@ -83,11 +112,31 @@
 			<version>1.2.0</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
+<!-- 		<dependency>
+			<groupId>${api.groupId}</groupId>
+			<artifactId>apps-commons</artifactId>
+			<classifier>mule-plugin</classifier>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency> -->
 		<dependency>
-		    <groupId>${api.groupId}</groupId>
-		    <artifactId>apps-commons</artifactId>
-		    <classifier>mule-plugin</classifier>
-		    <version>1.0.0-SNAPSHOT</version>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>munit-runner</artifactId>
+			<version>3.6.1</version>
+			<classifier>mule-plugin</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>munit-tools</artifactId>
+			<version>3.6.1</version>
+			<classifier>mule-plugin</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.weave</groupId>
+			<artifactId>assertions</artifactId>
+			<version>1.2.1</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

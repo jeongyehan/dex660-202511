@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="main-test-suite.xml" />
+	<munit:test name="main-test-suite-payment-approval-by-pnrTest" doc:id="d69c6602-c214-4033-9df1-a43ad7184ce6" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to payment-approval-by-pnr" doc:id="38e00019-4adc-40ea-8891-ccd3f39ee0e0" name="payment-approval-by-pnr"/>
+		</munit:execution>
+	</munit:test>
+	<munit:test name="main-test-suite-check-in-by-pnrTest" doc:id="5329c6a1-9ef6-4c57-ada0-4a5817be132d" description="Test">
+		<munit:behavior>
+		    <munit-tools:mock-when processor="flow-ref">
+		        <munit-tools:with-attributes>
+		        <munit-tools:with-attribute attributeName="name" whereValue="check-in-flights-management" />
+		        </munit-tools:with-attributes>
+		        <munit-tools:then-return>
+		        <munit-tools:payload value="#[output application/json --- {}]"/>
+		        </munit-tools:then-return>
+		    </munit-tools:mock-when>
+		    <munit-tools:mock-when processor="flow-ref">
+		        <munit-tools:with-attributes>
+		    <munit-tools:with-attribute attributeName="name" whereValue="register-passenger-data" />
+		        </munit-tools:with-attributes>
+		        <munit-tools:then-return>
+		        <munit-tools:payload value="#[output application/json --- {}]"/>
+		        </munit-tools:then-return>
+		    </munit-tools:mock-when>
+		    <munit-tools:mock-when processor="flow-ref">
+		        <munit-tools:with-attributes>
+		        <munit-tools:with-attribute attributeName="name" whereValue="create-payment-for-bags" />
+		        </munit-tools:with-attributes>
+		        <munit-tools:then-return>
+		        <munit-tools:payload value="#[output application/json --- {}]"/>
+		        </munit-tools:then-return>
+		    </munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="24b3eceb-5eec-4ded-8fd6-e1431ba21b5b" >
+				<munit:payload value="#[output application/json --- read(MunitTools::getResourceAsString('check-in-request.json'), 'application/json')]" />
+				<munit:variables >
+					<munit:variable key="PNR" value="N123" />
+				</munit:variables>
+			</munit:set-event>
+			<flow-ref doc:name="Flow-ref to check-in-by-pnr" doc:id="731a2268-26dc-40b3-b9e2-8fd7404774ea" name="check-in-by-pnr"/>
+		</munit:execution>
+		<munit:validation>
+		    <munit-tools:verify-call times="1" processor="flow-ref">
+		        <munit-tools:with-attributes>
+		            <munit-tools:with-attribute attributeName="name" whereValue="check-in-flights-management" />
+		        </munit-tools:with-attributes>
+		    </munit-tools:verify-call>
+		    <munit-tools:verify-call times="1" processor="flow-ref">
+		        <munit-tools:with-attributes>
+		            <munit-tools:with-attribute attributeName="name" whereValue="register-passenger-data" />
+		        </munit-tools:with-attributes>
+		    </munit-tools:verify-call>
+		    <munit-tools:verify-call times="1" processor="flow-ref">
+		        <munit-tools:with-attributes>
+		            <munit-tools:with-attribute attributeName="name" whereValue="create-payment-for-bags" />
+		        </munit-tools:with-attributes>
+		    </munit-tools:verify-call>
+		    <munit-tools:assert-that is='#[MunitTools::equalTo({"paymentID": "PAY-1AKD7482FAB9STATKO"})]' expression="#[payload]"/>
+		</munit:validation>
+	</munit:test>
+</mule>
