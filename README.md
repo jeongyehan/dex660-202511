@@ -32,3 +32,5 @@
 - mvn clean deploy
 - mvn clean deploy -DmuleDeploy -Dap.client_id=eda99d17552b4388b48b1591aad362ac -Dap.client_secret=7DF59c4b13534F82AB84508E1DC035Dd -Dap.ca.client_id=79714db16e854f15883a07bb36cf98c7 -Dap.ca.client_secret=446451E13B3c4b39bf660bDb519709b0
 - curl -ik -X PUT -H "Content-Type: application/json" -d "{\"lastName\":\"Smith\",\"numBags\":2}" https://check-in-papi-i8dem6.5sc6y6-2.usa-e2.cloudhub.io/api/v1/tickets/PNR123/checkin
+- mvn clean deploy -Dencrypt.key=secure12345
+- mvn clean deploy -DmuleDeploy -Dap.client_id=eda99d17552b4388b48b1591aad362ac -Dap.client_secret=7DF59c4b13534F82AB84508E1DC035Dd -Dap.ca.client_id=79714db16e854f15883a07bb36cf98c7 -Dap.ca.client_secret=446451E13B3c4b39bf660bDb519709b0 -Dencrypt.key=secure12345 -Ddeployment.env=dev

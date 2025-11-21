@@ -4,7 +4,7 @@
 
 	<groupId>f4d638fd-fc9b-4794-b898-9a02a289e0be</groupId>
 	<artifactId>check-in-papi-app</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<packaging>mule-application</packaging>
 
 	<name>check-in-papi</name>
@@ -12,7 +12,7 @@
 	<parent>
 		<groupId>f4d638fd-fc9b-4794-b898-9a02a289e0be</groupId>
 		<artifactId>solutions-parent-pom</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 		<relativePath>../parent-pom/pom.xml</relativePath>
 	</parent>
 
@@ -37,6 +37,7 @@
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
 				<extensions>true</extensions>
+				<version>4.5.3</version>
 			</plugin>
 		</plugins>
 	</build>
@@ -64,14 +65,14 @@
 		<dependency>
 			<groupId>org.mule.modules</groupId>
 			<artifactId>mule-apikit-module</artifactId>
-			<version>1.11.7</version>  
+			<version>1.11.7</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-		    <groupId>com.mulesoft.modules</groupId>
-		    <artifactId>mule-secure-configuration-property-module</artifactId>
-		    <classifier>mule-plugin</classifier>
-		    <version>1.3.0</version>  
+			<groupId>com.mulesoft.modules</groupId>
+			<artifactId>mule-secure-configuration-property-module</artifactId>
+			<classifier>mule-plugin</classifier>
+			<version>1.3.0</version>
 		</dependency>
 	</dependencies>
 
