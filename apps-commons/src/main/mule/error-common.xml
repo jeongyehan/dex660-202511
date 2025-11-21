@@ -5,15 +5,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
-	<import doc:name="Import" doc:id="51b3777d-2698-4816-8430-7196dc430c66" file="error-common.xml" />
-	<!-- [STUDIO:"api-error-handler"]<error-handler name="api-error-handler">
+	<error-handler name="api-error-handler">
             <on-error-propagate type="APIKIT:BAD_REQUEST">
                 <ee:transform doc:name="Transform Message">
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
-&#45;&#45;-
-{message: "Bad request"}&#93;&#93;></ee:set-payload>
+---
+{message: "Bad request"}]]></ee:set-payload>
                     </ee:message>
                     <ee:variables>
                         <ee:set-variable variableName="httpStatus">400</ee:set-variable>
@@ -25,8 +24,8 @@ output application/json
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
-&#45;&#45;-
-{message: "Resource not found"}&#93;&#93;></ee:set-payload>
+---
+{message: "Resource not found"}]]></ee:set-payload>
                     </ee:message>
                     <ee:variables>
                         <ee:set-variable variableName="httpStatus">404</ee:set-variable>
@@ -38,8 +37,8 @@ output application/json
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
-&#45;&#45;-
-{message: "Method not allowed"}&#93;&#93;></ee:set-payload>
+---
+{message: "Method not allowed"}]]></ee:set-payload>
                     </ee:message>
                     <ee:variables>
                         <ee:set-variable variableName="httpStatus">405</ee:set-variable>
@@ -51,8 +50,8 @@ output application/json
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
-&#45;&#45;-
-{message: "Not acceptable"}&#93;&#93;></ee:set-payload>
+---
+{message: "Not acceptable"}]]></ee:set-payload>
                     </ee:message>
                     <ee:variables>
                         <ee:set-variable variableName="httpStatus">406</ee:set-variable>
@@ -64,8 +63,8 @@ output application/json
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
-&#45;&#45;-
-{message: "Unsupported media type"}&#93;&#93;></ee:set-payload>
+---
+{message: "Unsupported media type"}]]></ee:set-payload>
                     </ee:message>
                     <ee:variables>
                         <ee:set-variable variableName="httpStatus">415</ee:set-variable>
@@ -77,13 +76,13 @@ output application/json
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
-&#45;&#45;-
-{message: "Not Implemented"}&#93;&#93;></ee:set-payload>
+---
+{message: "Not Implemented"}]]></ee:set-payload>
                     </ee:message>
                     <ee:variables>
                         <ee:set-variable variableName="httpStatus">501</ee:set-variable>
                     </ee:variables>
                 </ee:transform>
             </on-error-propagate>
-        </error-handler> [STUDIO] -->
+        </error-handler>
 	</mule>

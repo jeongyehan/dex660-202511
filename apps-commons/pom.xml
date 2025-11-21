@@ -3,18 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>f4d638fd-fc9b-4794-b898-9a02a289e0be</groupId>
-	<artifactId>check-in-papi-app</artifactId>
-	<version>1.0.1</version>
+	<artifactId>apps-commons</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
-	<name>check-in-papi</name>
-
-<!-- 	<parent>
-		<groupId>f4d638fd-fc9b-4794-b898-9a02a289e0be</groupId>
-		<artifactId>solutions-parent-pom</artifactId>
-		<version>1.0.1</version>
-		<relativePath>../parent-pom/pom.xml</relativePath>
-	</parent> -->
+	<name>apps-commons</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,11 +15,6 @@
 
 		<app.runtime>4.10.0</app.runtime>
 		<mule.maven.plugin.version>4.5.3</mule.maven.plugin.version>
-		<api.groupId>f4d638fd-fc9b-4794-b898-9a02a289e0be</api.groupId>
-		<api.artifactId>check-in-papi</api.artifactId>
-		<api.version>1.0.0</api.version>
-		
-		<!-- <api.layer>${api.layer.papi}</api.layer> -->
 	</properties>
 
 	<build>
@@ -34,13 +22,16 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
-				<version>3.2.0</version>						
+				<version>3.2.0</version>
 			</plugin>
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
+				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
-				<version>4.5.3</version>
+				<configuration>
+				    <classifier>mule-plugin</classifier>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -49,45 +40,14 @@
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-http-connector</artifactId>
-			<classifier>mule-plugin</classifier>
 			<version>1.10.5</version>
+			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-sockets-connector</artifactId>
-			<classifier>mule-plugin</classifier>
 			<version>1.2.7</version>
-		</dependency>
-		<dependency>
-			<groupId>${api.groupId}</groupId>
-			<artifactId>${api.artifactId}</artifactId>
-			<version>${api.version}</version>
-			<classifier>oas</classifier>
-			<type>zip</type>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-apikit-module</artifactId>
-			<version>1.11.7</version>
 			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>com.mulesoft.modules</groupId>
-			<artifactId>mule-secure-configuration-property-module</artifactId>
-			<classifier>mule-plugin</classifier>
-			<version>1.3.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-tracing-module</artifactId>
-			<version>1.2.0</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-		    <groupId>${api.groupId}</groupId>
-		    <artifactId>apps-commons</artifactId>
-		    <classifier>mule-plugin</classifier>
-		    <version>1.0.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

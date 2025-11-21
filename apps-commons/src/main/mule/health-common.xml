@@ -6,28 +6,24 @@
 	xsi:schemaLocation="
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
 
-	<import doc:name="Import" doc:id="d03d79c6-4a01-4f45-8950-533fe325fbd7" file="health-common.xml" />
-	<!-- [STUDIO:"api-alive"]<flow name="api-alive" >
+	<flow name="api-alive" >
 	    <http:listener config-ref="apiHttpListenerConfig" path="/alive">
 	    <http:response statusCode="200" />
 	    <http:error-response statusCode="500" >
-	        <http:body ><![CDATA[DOWN&#93;&#93;></http:body>
+	        <http:body ><![CDATA[DOWN]]></http:body>
 	    </http:error-response>
 	    </http:listener>
 	    <set-payload value="UP" />
-	</flow> [STUDIO] -->
-	<!-- [STUDIO:"api-ready"]<flow name="api-ready" >
+	</flow>
+	<flow name="api-ready" >
 	    <http:listener config-ref="apiHttpListenerConfig" path="/ready" >
 	    <http:response statusCode="200" />
 	    <http:error-response statusCode="500" >
-	        <http:body ><![CDATA[DOWN&#93;&#93;></http:body>
+	        <http:body ><![CDATA[DOWN]]></http:body>
 	    </http:error-response>
 	    </http:listener>
 	    <flow-ref name="check-all-dependencies-are-alive"/>
 	    <set-payload value="UP" />
-	</flow> [STUDIO] -->
-	<sub-flow name="check-all-dependencies-are-alive" >
-	    <logger />
-	</sub-flow>
+	</flow>
 	
 </mule>
