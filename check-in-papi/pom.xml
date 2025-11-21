@@ -9,12 +9,12 @@
 
 	<name>check-in-papi</name>
 
-	<parent>
+<!-- 	<parent>
 		<groupId>f4d638fd-fc9b-4794-b898-9a02a289e0be</groupId>
 		<artifactId>solutions-parent-pom</artifactId>
 		<version>1.0.1</version>
 		<relativePath>../parent-pom/pom.xml</relativePath>
-	</parent>
+	</parent> -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -32,6 +32,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.2.0</version>						
 			</plugin>
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
@@ -73,6 +74,12 @@
 			<artifactId>mule-secure-configuration-property-module</artifactId>
 			<classifier>mule-plugin</classifier>
 			<version>1.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-tracing-module</artifactId>
+			<version>1.2.0</version>
+			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
 
